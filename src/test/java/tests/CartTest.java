@@ -2,7 +2,8 @@ package tests;
 
 import org.testng.annotations.Test;
 
-import static org.testng.AssertJUnit.assertEquals;
+import static org.testng.Assert.assertEquals;
+
 
 public class CartTest extends BaseTest {
 
@@ -13,7 +14,7 @@ public class CartTest extends BaseTest {
         productsPage.clickAddButton("Sauce Labs Backpack");
         productsPage.clickShoppingCart();
         String product = yourCart.getNameOfProduct();
-        assertEquals("название продукта не соответствует ожидаемому", "Sauce Labs Backpack", product);
+        assertEquals(product, "Sauce Labs Backpack", "название продукта не соответствует ожидаемому");
     }
 
     @Test
@@ -23,7 +24,7 @@ public class CartTest extends BaseTest {
         productsPage.clickAddButton("Sauce Labs Backpack");
         productsPage.clickShoppingCart();
         String price = yourCart.checkPrice("Sauce Labs Backpack");
-        assertEquals("цена не соответствует ожидаемому", "$29.99", price);
+        assertEquals(price, "$29.99", "цена не соответствует ожидаемому");
     }
 
     @Test
@@ -33,7 +34,7 @@ public class CartTest extends BaseTest {
         productsPage.clickAddButton("Sauce Labs Backpack");
         productsPage.clickShoppingCart();
         String description = yourCart.checkDescription("Sauce Labs Backpack");
-        assertEquals("описание не соответствует ожидаемому", "carry.allTheThings() with the sleek, streamlined Sly Pack that melds uncompromising style with unequaled laptop and tablet protection.", description);
+        assertEquals(description, "carry.allTheThings() with the sleek, streamlined Sly Pack that melds uncompromising style with unequaled laptop and tablet protection.", "описание не соответствует ожидаемому");
     }
 
     @Test
@@ -45,7 +46,7 @@ public class CartTest extends BaseTest {
         productsPage.clickAddButton("Sauce Labs Bolt T-Shirt");
         productsPage.clickShoppingCart();
         int products = yourCart.checkCountOfProducts();
-        assertEquals("переход на страницу не выполнен", 3, products);
+        assertEquals(products, 3, "количество товаров не соответствует ожидаемому");
     }
 
     @Test
@@ -56,7 +57,7 @@ public class CartTest extends BaseTest {
         productsPage.clickShoppingCart();
         yourCart.clickRemoveProduct("Sauce Labs Backpack");
         int productsCount = yourCart.checkCountOfProducts();
-        assertEquals("количество продуктов не соответствует ожидаемому", 0, productsCount);
+        assertEquals(productsCount, 0, "количество продуктов не соответствует ожидаемому");
     }
 
     @Test
@@ -69,7 +70,7 @@ public class CartTest extends BaseTest {
         productsPage.clickShoppingCart();
         yourCart.clickRemoveProduct("Sauce Labs Bike Light");
         int productsCount = yourCart.checkCountOfProducts();
-        assertEquals("количество продуктов не соответствует ожидаемому", 2, productsCount);
+        assertEquals(productsCount, 2, "количество продуктов не соответствует ожидаемому");
     }
 
     @Test
@@ -79,7 +80,6 @@ public class CartTest extends BaseTest {
         productsPage.clickAddButton("Sauce Labs Backpack");
         productsPage.clickShoppingCart();
         yourCart.clickContinueShoppingButton();
-        assertEquals("переход на страницу не выполнен","Products",productsPage.getTitle());
+        assertEquals(productsPage.getTitle(), "Products", "переход на страницу не выполнен");
     }
-
 }

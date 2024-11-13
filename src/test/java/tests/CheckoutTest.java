@@ -2,7 +2,7 @@ package tests;
 
 import org.testng.annotations.Test;
 
-import static org.testng.AssertJUnit.assertEquals;
+import static org.testng.Assert.assertEquals;
 
 public class CheckoutTest extends BaseTest {
 
@@ -17,7 +17,7 @@ public class CheckoutTest extends BaseTest {
         checkoutPage.enterLastName("Zhdanova");
         checkoutPage.enterPostalCode("12345");
         checkoutPage.clickContinueButton();
-        assertEquals("переход на страницу не выполнен", "Checkout: Overview", checkoutOverviewPage.getTitle());
+        assertEquals(checkoutOverviewPage.getTitle(), "Checkout: Overview", "переход на страницу не выполнен");
     }
 
     @Test
@@ -31,7 +31,6 @@ public class CheckoutTest extends BaseTest {
         checkoutPage.enterLastName("Zhdanova");
         checkoutPage.enterPostalCode("12345");
         checkoutPage.clickContinueButton();
-        assertEquals("ошибка не выводится ", "Error: First Name is required", checkoutPage.getErrorMassage());
+        assertEquals(checkoutPage.getErrorMassage(), "Error: First Name is required", "ошибка не отображается");
     }
-
 }

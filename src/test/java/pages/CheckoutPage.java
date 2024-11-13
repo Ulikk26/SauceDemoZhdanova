@@ -34,5 +34,4 @@ public class CheckoutPage extends  BasePage{
     public  String   getErrorMassage(){
         return driver.findElement(ERROR_MASSAGE).getText();
     }
-
 }

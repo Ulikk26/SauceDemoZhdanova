@@ -14,5 +14,4 @@ public class CheckoutOverviewPage extends BasePage {
     public String getTitle() {
         return driver.findElement(TITLE).getText();
     }
-
 }
