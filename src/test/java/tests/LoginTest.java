@@ -45,7 +45,7 @@ public class LoginTest extends BaseTest {
         driver.findElement(By.id("user-name")).sendKeys("standard_user1");
         driver.findElement(By.id("password")).sendKeys("secret_sauce");
         driver.findElement(By.id("login-button")).click();
-        boolean title= driver.findElement(By.xpath("//h3[text()='Epic sadface: Username and password do not match any user in this service']")).isDisplayed();
-        assertTrue(title,"сообщение об ошибке неверное");
+        String title= driver.findElement(By.xpath("//h3[@data-test='error']")).getText();
+        assertEquals(title, "Epic sadface: Username and password do not match any user in this service", "ошибка не верная");
     }
 }
