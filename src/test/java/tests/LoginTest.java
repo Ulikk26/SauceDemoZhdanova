@@ -3,13 +3,6 @@ package tests;
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 
-import java.awt.*;
-import java.awt.datatransfer.Clipboard;
-import java.awt.datatransfer.DataFlavor;
-import java.awt.datatransfer.StringSelection;
-import java.awt.datatransfer.UnsupportedFlavorException;
-import java.io.IOException;
-
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
@@ -55,5 +48,4 @@ public class LoginTest extends BaseTest {
         boolean title= driver.findElement(By.xpath("//h3[text()='Epic sadface: Username and password do not match any user in this service']")).isDisplayed();
         assertTrue(title,"сообщение об ошибке неверное");
     }
-
 }

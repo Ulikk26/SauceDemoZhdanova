@@ -13,7 +13,7 @@ public class CartTest extends BaseTest {
         loginPage.login("standard_user", "secret_sauce");
         productsPage.clickAddButton("Sauce Labs Backpack");
         productsPage.clickShoppingCart();
-        String product = yourCart.getNameOfProduct();
+        String product = cartPage.getNameOfProduct();
         assertEquals(product, "Sauce Labs Backpack", "название продукта не соответствует ожидаемому");
     }
 
@@ -23,7 +23,7 @@ public class CartTest extends BaseTest {
         loginPage.login("standard_user", "secret_sauce");
         productsPage.clickAddButton("Sauce Labs Backpack");
         productsPage.clickShoppingCart();
-        String price = yourCart.checkPrice("Sauce Labs Backpack");
+        String price = cartPage.checkPrice("Sauce Labs Backpack");
         assertEquals(price, "$29.99", "цена не соответствует ожидаемому");
     }
 
@@ -33,7 +33,7 @@ public class CartTest extends BaseTest {
         loginPage.login("standard_user", "secret_sauce");
         productsPage.clickAddButton("Sauce Labs Backpack");
         productsPage.clickShoppingCart();
-        String description = yourCart.checkDescription("Sauce Labs Backpack");
+        String description = cartPage.checkDescription("Sauce Labs Backpack");
         assertEquals(description, "carry.allTheThings() with the sleek, streamlined Sly Pack that melds uncompromising style with unequaled laptop and tablet protection.", "описание не соответствует ожидаемому");
     }
 
@@ -45,7 +45,7 @@ public class CartTest extends BaseTest {
         productsPage.clickAddButton("Sauce Labs Bike Light");
         productsPage.clickAddButton("Sauce Labs Bolt T-Shirt");
         productsPage.clickShoppingCart();
-        int products = yourCart.checkCountOfProducts();
+        int products = cartPage.checkCountOfProducts();
         assertEquals(products, 3, "количество товаров не соответствует ожидаемому");
     }
 
@@ -55,8 +55,8 @@ public class CartTest extends BaseTest {
         loginPage.login("standard_user", "secret_sauce");
         productsPage.clickAddButton("Sauce Labs Backpack");
         productsPage.clickShoppingCart();
-        yourCart.clickRemoveProduct("Sauce Labs Backpack");
-        int productsCount = yourCart.checkCountOfProducts();
+        cartPage.clickRemoveProduct("Sauce Labs Backpack");
+        int productsCount = cartPage.checkCountOfProducts();
         assertEquals(productsCount, 0, "количество продуктов не соответствует ожидаемому");
     }
 
@@ -68,8 +68,8 @@ public class CartTest extends BaseTest {
         productsPage.clickAddButton("Sauce Labs Bike Light");
         productsPage.clickAddButton("Sauce Labs Bolt T-Shirt");
         productsPage.clickShoppingCart();
-        yourCart.clickRemoveProduct("Sauce Labs Bike Light");
-        int productsCount = yourCart.checkCountOfProducts();
+        cartPage.clickRemoveProduct("Sauce Labs Bike Light");
+        int productsCount = cartPage.checkCountOfProducts();
         assertEquals(productsCount, 2, "количество продуктов не соответствует ожидаемому");
     }
 
@@ -79,7 +79,7 @@ public class CartTest extends BaseTest {
         loginPage.login("standard_user", "secret_sauce");
         productsPage.clickAddButton("Sauce Labs Backpack");
         productsPage.clickShoppingCart();
-        yourCart.clickContinueShoppingButton();
+        cartPage.clickContinueShoppingButton();
         assertEquals(productsPage.getTitle(), "Products", "переход на страницу не выполнен");
     }
 }

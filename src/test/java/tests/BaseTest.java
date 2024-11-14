@@ -13,7 +13,7 @@ public class BaseTest {
     WebDriver driver;
     LoginPage loginPage;
     ProductsPage productsPage;
-    YourCart yourCart;
+    CartPage cartPage;
     CheckoutPage checkoutPage;
     CheckoutOverviewPage checkoutOverviewPage;
 
@@ -26,7 +26,7 @@ public class BaseTest {
 
         loginPage=new LoginPage(driver);
         productsPage=new ProductsPage(driver);
-        yourCart = new YourCart(driver);
+        cartPage = new CartPage(driver);
         checkoutPage = new CheckoutPage(driver);
         checkoutOverviewPage =new CheckoutOverviewPage(driver);
     }

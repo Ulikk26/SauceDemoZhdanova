@@ -12,7 +12,7 @@ public class CheckoutTest extends BaseTest {
         loginPage.login("standard_user", "secret_sauce");
         productsPage.clickAddButton("Sauce Labs Backpack");
         productsPage.clickShoppingCart();
-        yourCart.clickCheckoutButton();
+        cartPage.clickCheckoutButton();
         checkoutPage.enterFirstName("Julia");
         checkoutPage.enterLastName("Zhdanova");
         checkoutPage.enterPostalCode("12345");
@@ -26,7 +26,7 @@ public class CheckoutTest extends BaseTest {
         loginPage.login("standard_user", "secret_sauce");
         productsPage.clickAddButton("Sauce Labs Backpack");
         productsPage.clickShoppingCart();
-        yourCart.clickCheckoutButton();
+        cartPage.clickCheckoutButton();
         checkoutPage.enterFirstName("");
         checkoutPage.enterLastName("Zhdanova");
         checkoutPage.enterPostalCode("12345");
