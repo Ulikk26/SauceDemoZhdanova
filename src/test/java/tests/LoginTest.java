@@ -10,7 +10,7 @@ public class LoginTest extends BaseTest {
 
     //запуск теста повторно при его падении retryAnalyzer = Retry.class
     @Test(testName = "Проверка позитивного логина", description = "Проверка позитивного логина", retryAnalyzer = Retry.class, priority = 4)
-    public void checkLogin(){
+    public void checkLogin() {
         loginPage.open();
         loginPage.login("standard_user", "secret_sauce1");
         assertEquals(
@@ -20,8 +20,8 @@ public class LoginTest extends BaseTest {
     }
 
     //тест временно отключён enabled = false
-    @Test(testName = "Проверка ошибки, при пустом логине", description = "Проверка ошибки, при пустом логине", enabled = false,priority = 3)
-    public void checkLoginEmptyUserName(){
+    @Test(testName = "Проверка ошибки, при пустом логине", description = "Проверка ошибки, при пустом логине", enabled = false, priority = 3)
+    public void checkLoginEmptyUserName() {
         loginPage.open();
         loginPage.login("", "secret_sauce");
         String errorMassage = loginPage.getErrorMessage();
@@ -33,7 +33,7 @@ public class LoginTest extends BaseTest {
 
     //тест запуститься вторым по очередности priority = 2
     @Test(testName = "Проверка ошибки, при пустом пароля", description = "Проверка ошибки, при пустом пароля", priority = 2)
-    public void checkLoginEmptyPassword(){
+    public void checkLoginEmptyPassword() {
         loginPage.open();
         loginPage.login("standard_user", "");
         String errorMassage = loginPage.getErrorMessage();
@@ -44,12 +44,12 @@ public class LoginTest extends BaseTest {
 
     //тест запуститься первым по очередности priority = 1
     @Test(testName = "Проверка ошибки, при неверном логине", description = "Проверка ошибки, при неверном логине", priority = 1)
-    public void checkLoginEmptyWrongUserName(){
+    public void checkLoginEmptyWrongUserName() {
         driver.get("https://www.saucedemo.com/");
         driver.findElement(By.id("user-name")).sendKeys("standard_user1");
         driver.findElement(By.id("password")).sendKeys("secret_sauce");
         driver.findElement(By.id("login-button")).click();
-        String title= driver.findElement(By.xpath("//h3[@data-test='error']")).getText();
+        String title = driver.findElement(By.xpath("//h3[@data-test='error']")).getText();
         assertEquals(title, "Epic sadface: Username and password do not match any user in this service", "ошибка не верная");
     }
 

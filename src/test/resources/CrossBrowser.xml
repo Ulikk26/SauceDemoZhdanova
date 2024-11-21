@@ -22,4 +22,4 @@
             <parameter name="browser" value="edge"></parameter>
         </classes>
     </test> <!-- Test -->
-   </suite>
+</suite>

@@ -5,9 +5,9 @@ import org.openqa.selenium.WebDriver;
 
 public class CheckoutOverviewPage extends BasePage {
 
-     private final By TITLE = By.cssSelector(".title");
+    private final By TITLE = By.cssSelector(".title");
 
-    public CheckoutOverviewPage (WebDriver driver){
+    public CheckoutOverviewPage(WebDriver driver) {
         super(driver);
     }
 
