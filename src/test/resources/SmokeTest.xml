@@ -4,7 +4,6 @@
     <test name="Thread#1">
         <classes>
             <class name="tests.LoginTest"/>
-
         </classes>
     </test> <!-- Test -->
     <test name="Thread#2">
@@ -12,7 +11,6 @@
             <class name="tests.CartTest"/>
             <class name="tests.LocatorTest"/>
             <class name="tests.CheckoutTest"/>
-
         </classes>
     </test> <!-- Test -->
 </suite>
