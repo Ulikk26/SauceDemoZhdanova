@@ -7,7 +7,8 @@ import static org.testng.Assert.assertEquals;
 
 public class CartTest extends BaseTest {
 
-    @Test
+    //метод будет выполняться всегда вне зависимости от результатов методов, на которые он завязан
+    @Test(testName = "Проверка названия добавленного продукта в корзину", description = "Проверка названия добавленного продукта в корзину", alwaysRun = true)
     public void checkAddedOneProductToCart() {
         loginPage.open();
         loginPage.login("standard_user", "secret_sauce");
@@ -17,7 +18,8 @@ public class CartTest extends BaseTest {
         assertEquals(product, "Sauce Labs Backpack", "название продукта не соответствует ожидаемому");
     }
 
-    @Test
+    //повторить тест 2 раза invocationCount = 2
+    @Test(testName = "Проверка цены добавленного продукта в корзину", description = "Проверка цены добавленного продукта в корзину", invocationCount = 2)
     public void checkPriceOfProduct() {
         loginPage.open();
         loginPage.login("standard_user", "secret_sauce");
@@ -27,7 +29,8 @@ public class CartTest extends BaseTest {
         assertEquals(price, "$29.99", "цена не соответствует ожидаемому");
     }
 
-    @Test
+    //тест включен в группу slow groups = "slow"
+    @Test(testName = "Проверка описания добавленного продукта в корзину", description = "Проверка описания добавленного продукта в корзину", groups = {"slow"})
     public void checkDescriptionOfProduct() {
         loginPage.open();
         loginPage.login("standard_user", "secret_sauce");
@@ -37,7 +40,8 @@ public class CartTest extends BaseTest {
         assertEquals(description, "carry.allTheThings() with the sleek, streamlined Sly Pack that melds uncompromising style with unequaled laptop and tablet protection.", "описание не соответствует ожидаемому");
     }
 
-    @Test
+    //тест включен в группу fast groups = "fast"
+    @Test(testName = "Проверка добавления нескольких продуктов в корзину", description = "Проверка добавления нескольких продуктов в корзину", groups = {"fast"})
     public void checkAddedSomeProductsToCart() {
         loginPage.open();
         loginPage.login("standard_user", "secret_sauce");
@@ -49,7 +53,7 @@ public class CartTest extends BaseTest {
         assertEquals(products, 3, "количество товаров не соответствует ожидаемому");
     }
 
-    @Test
+    @Test(testName = "Проверка удаления продуктов из корзины", description = "Проверка удаления продуктов из корзины")
     public void checkRemoveProduct() {
         loginPage.open();
         loginPage.login("standard_user", "secret_sauce");
@@ -60,7 +64,7 @@ public class CartTest extends BaseTest {
         assertEquals(productsCount, 0, "количество продуктов не соответствует ожидаемому");
     }
 
-    @Test
+    @Test(testName = "Проверка удаления одного продукта из нескольких", description = "Проверка удаления одного продукта из нескольких")
     public void checkRemoveOneProductFromSome() {
         loginPage.open();
         loginPage.login("standard_user", "secret_sauce");
@@ -73,7 +77,7 @@ public class CartTest extends BaseTest {
         assertEquals(productsCount, 2, "количество продуктов не соответствует ожидаемому");
     }
 
-    @Test
+    @Test(testName = "Проверка возврата на страницу продуктов", description = "Проверка возврата на страницу продуктов")
     public void checkReturnToProduct() {
         loginPage.open();
         loginPage.login("standard_user", "secret_sauce");

@@ -3,7 +3,7 @@ package tests;
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 
-public class LocatorTest extends BaseTest{
+public class LocatorTest extends BaseTest {
 
     @Test
     public void locatorTest() {
@@ -22,7 +22,7 @@ public class LocatorTest extends BaseTest{
         driver.findElement(By.xpath("//span[text()='Products']"));
         driver.findElement(By.xpath("//div[contains (@data-test, 'inventory-item')]"));
         driver.findElement(By.xpath("//div[contains (text(), 'carry.allTheThings()')]"));
-        driver.findElement(By.xpath("//div[text()='Sauce Labs Backpack']/"+
+        driver.findElement(By.xpath("//div[text()='Sauce Labs Backpack']/" +
                 "ancestor::div[@class='inventory_item']//div[@data-test='inventory-item-price']"));
         driver.findElement(By.xpath("//div[@data-test='secondary-header']//descendant::span[@class='select_container']"));
         driver.findElement(By.xpath("//li[@class='social_facebook']/following::li/a"));

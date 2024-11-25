@@ -6,7 +6,7 @@ import static org.testng.Assert.assertEquals;
 
 public class CheckoutTest extends BaseTest {
 
-    @Test
+    @Test(testName = "Проверка перехода на страницу Checkout: Overview ", description = "Проверка перехода на страницу Checkout: Overview")
     public void checkCheckout() {
         loginPage.open();
         loginPage.login("standard_user", "secret_sauce");
@@ -20,7 +20,7 @@ public class CheckoutTest extends BaseTest {
         assertEquals(checkoutOverviewPage.getTitle(), "Checkout: Overview", "переход на страницу не выполнен");
     }
 
-    @Test
+    @Test(testName = "Проверка ошибки , при переходе на страницу Checkout: Overview ", description = "Проверка ошибки , при переходе на страницу Checkout: Overview")
     public void checkErrorMassageIfFirstNameEmpty() {
         loginPage.open();
         loginPage.login("standard_user", "secret_sauce");
