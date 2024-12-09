@@ -19,7 +19,7 @@ public class CheckoutTest extends BaseTest {
         checkoutPage.enterLastName("Zhdanova");
         checkoutPage.enterPostalCode("12345");
         checkoutPage.clickContinueButton();
-        assertEquals(checkoutOverviewPage.getTitle(), "Checkout: Overview", "переход на страницу не выполнен");
+        assertEquals(checkoutOverviewPage.getTitle(), "Checkout: Your Information", "переход на страницу не выполнен");
     }
 
     @Test(testName = "Проверка ошибки , при переходе на страницу Checkout: Overview ", description = "Проверка ошибки , при переходе на страницу Checkout: Overview")
