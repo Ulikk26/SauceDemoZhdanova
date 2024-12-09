@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -20,34 +21,41 @@ public class CartPage extends BasePage {
         super(driver);
     }
 
+    @Step("Проверка названия добавленного товара")
     public String getNameOfProduct() {
         return driver.findElement(PRODUCTS_TITLE).getText();
     }
 
+    @Step("Проверка цены добавленного товара")
     public String checkPrice(String product) {
         By price = By.xpath(String.format(PRICE_OF_PRODUCT, product));
         return driver.findElement(price).getText();
     }
 
+    @Step("Проверка описания добавленного товара")
     public String checkDescription(String product) {
         By description = By.xpath(String.format(DESCRIPTION_OF_PRODUCT, product));
         return driver.findElement(description).getText();
     }
 
+    @Step("Проверка количества добавленных товаров в корзину")
     public int checkCountOfProducts() {
         List<WebElement> products = driver.findElements(LIST_OF_PRODUCTS);
         return products.size();
     }
 
+    @Step("Удаление продукта из корзины")
     public void clickRemoveProduct(String product) {
         By remove = By.xpath(String.format(REMOVE_BUTTON, product));
         driver.findElement(remove).click();
     }
 
+    @Step("Нажатие на кнопку CONTINUE")
     public void clickContinueShoppingButton() {
         driver.findElement(CONTINUE_SHOPPING_BUTTON).click();
     }
 
+    @Step("Нажатие на кнопку Checkout ")
     public void clickCheckoutButton() {
         driver.findElement(CHECKOUT_BUTTON).click();
     }

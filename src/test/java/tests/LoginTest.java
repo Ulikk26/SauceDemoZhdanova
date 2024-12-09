@@ -1,5 +1,6 @@
 package tests;
 
+import jdk.jfr.Description;
 import org.openqa.selenium.By;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -10,14 +11,16 @@ public class LoginTest extends BaseTest {
 
     //запуск теста повторно при его падении retryAnalyzer = Retry.class
     @Test(testName = "Проверка позитивного логина", description = "Проверка позитивного логина", retryAnalyzer = Retry.class, priority = 4)
+   @Description("Проверка позитивного логина")
     public void checkLogin() {
         loginPage.open();
-        loginPage.login("standard_user", "secret_sauce1");
+        loginPage.login("standard_user", "secret_sauce");
         assertEquals(
                 productsPage.getTitle(),
                 "Products",
                 "переход на страницу не выполнен");
     }
+
 
     //тест временно отключён enabled = false
     @Test(testName = "Проверка ошибки, при пустом логине", description = "Проверка ошибки, при пустом логине", enabled = false, priority = 3)
@@ -27,12 +30,12 @@ public class LoginTest extends BaseTest {
         String errorMassage = loginPage.getErrorMessage();
         assertEquals(loginPage.getErrorMessage(),
                 "Epic sadface: Username is required",
-                "сообщение об ошибке неверное"
-        );
+                "сообщение об ошибке неверное" );
     }
 
     //тест запуститься вторым по очередности priority = 2
     @Test(testName = "Проверка ошибки, при пустом пароля", description = "Проверка ошибки, при пустом пароля", priority = 2)
+    @Description("Проверка отображения ошибки, при вводе пустого пароля")
     public void checkLoginEmptyPassword() {
         loginPage.open();
         loginPage.login("standard_user", "");

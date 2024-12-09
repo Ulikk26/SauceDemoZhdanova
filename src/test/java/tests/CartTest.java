@@ -1,5 +1,6 @@
 package tests;
 
+import jdk.jfr.Description;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
@@ -9,6 +10,7 @@ public class CartTest extends BaseTest {
 
     //метод будет выполняться всегда вне зависимости от результатов методов, на которые он завязан
     @Test(testName = "Проверка названия добавленного продукта в корзину", description = "Проверка названия добавленного продукта в корзину", alwaysRun = true)
+    @Description("Проверка названия добавленного продукта в корзину")
     public void checkAddedOneProductToCart() {
         loginPage.open();
         loginPage.login("standard_user", "secret_sauce");
@@ -20,6 +22,7 @@ public class CartTest extends BaseTest {
 
     //повторить тест 2 раза invocationCount = 2
     @Test(testName = "Проверка цены добавленного продукта в корзину", description = "Проверка цены добавленного продукта в корзину", invocationCount = 2)
+    @Description("Проверка цены добавленного продукта в корзину")
     public void checkPriceOfProduct() {
         loginPage.open();
         loginPage.login("standard_user", "secret_sauce");
@@ -31,6 +34,7 @@ public class CartTest extends BaseTest {
 
     //тест включен в группу slow groups = "slow"
     @Test(testName = "Проверка описания добавленного продукта в корзину", description = "Проверка описания добавленного продукта в корзину", groups = {"slow"})
+    @Description("Проверка описания добавленного продукта в корзину")
     public void checkDescriptionOfProduct() {
         loginPage.open();
         loginPage.login("standard_user", "secret_sauce");
@@ -42,6 +46,7 @@ public class CartTest extends BaseTest {
 
     //тест включен в группу fast groups = "fast"
     @Test(testName = "Проверка добавления нескольких продуктов в корзину", description = "Проверка добавления нескольких продуктов в корзину", groups = {"fast"})
+    @Description("Проверка добавления нескольких продуктов в корзину")
     public void checkAddedSomeProductsToCart() {
         loginPage.open();
         loginPage.login("standard_user", "secret_sauce");
@@ -54,6 +59,7 @@ public class CartTest extends BaseTest {
     }
 
     @Test(testName = "Проверка удаления продуктов из корзины", description = "Проверка удаления продуктов из корзины")
+    @Description("Проверка удаления продуктов из корзины")
     public void checkRemoveProduct() {
         loginPage.open();
         loginPage.login("standard_user", "secret_sauce");
@@ -65,6 +71,7 @@ public class CartTest extends BaseTest {
     }
 
     @Test(testName = "Проверка удаления одного продукта из нескольких", description = "Проверка удаления одного продукта из нескольких")
+    @Description("Проверка удаления одного продукта из нескольких")
     public void checkRemoveOneProductFromSome() {
         loginPage.open();
         loginPage.login("standard_user", "secret_sauce");
@@ -78,6 +85,7 @@ public class CartTest extends BaseTest {
     }
 
     @Test(testName = "Проверка возврата на страницу продуктов", description = "Проверка возврата на страницу продуктов")
+    @Description("Проверка возврата на страницу продуктов")
     public void checkReturnToProduct() {
         loginPage.open();
         loginPage.login("standard_user", "secret_sauce");
