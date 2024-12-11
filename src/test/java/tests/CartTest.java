@@ -1,17 +1,19 @@
 package tests;
 
 import jdk.jfr.Description;
+import lombok.extern.log4j.Log4j2;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
 
-
+@Log4j2
 public class CartTest extends BaseTest {
 
     //метод будет выполняться всегда вне зависимости от результатов методов, на которые он завязан
     @Test(testName = "Проверка названия добавленного продукта в корзину", description = "Проверка названия добавленного продукта в корзину", alwaysRun = true)
     @Description("Проверка названия добавленного продукта в корзину")
     public void checkAddedOneProductToCart() {
+        log.info("Checking the name of the added product");
         loginPage.open();
         loginPage.login("standard_user", "secret_sauce");
         productsPage.clickAddButton("Sauce Labs Backpack");
@@ -24,6 +26,7 @@ public class CartTest extends BaseTest {
     @Test(testName = "Проверка цены добавленного продукта в корзину", description = "Проверка цены добавленного продукта в корзину", invocationCount = 2)
     @Description("Проверка цены добавленного продукта в корзину")
     public void checkPriceOfProduct() {
+        log.info("Checking the price of the added product");
         loginPage.open();
         loginPage.login("standard_user", "secret_sauce");
         productsPage.clickAddButton("Sauce Labs Backpack");
@@ -36,6 +39,7 @@ public class CartTest extends BaseTest {
     @Test(testName = "Проверка описания добавленного продукта в корзину", description = "Проверка описания добавленного продукта в корзину", groups = {"slow"})
     @Description("Проверка описания добавленного продукта в корзину")
     public void checkDescriptionOfProduct() {
+        log.info("Checking the description of the added product");
         loginPage.open();
         loginPage.login("standard_user", "secret_sauce");
         productsPage.clickAddButton("Sauce Labs Backpack");
@@ -48,6 +52,7 @@ public class CartTest extends BaseTest {
     @Test(testName = "Проверка добавления нескольких продуктов в корзину", description = "Проверка добавления нескольких продуктов в корзину", groups = {"fast"})
     @Description("Проверка добавления нескольких продуктов в корзину")
     public void checkAddedSomeProductsToCart() {
+        log.info("Adding some products into cart");
         loginPage.open();
         loginPage.login("standard_user", "secret_sauce");
         productsPage.clickAddButton("Sauce Labs Backpack");
@@ -61,6 +66,7 @@ public class CartTest extends BaseTest {
     @Test(testName = "Проверка удаления продуктов из корзины", description = "Проверка удаления продуктов из корзины")
     @Description("Проверка удаления продуктов из корзины")
     public void checkRemoveProduct() {
+        log.info("Removing the product from the cart");
         loginPage.open();
         loginPage.login("standard_user", "secret_sauce");
         productsPage.clickAddButton("Sauce Labs Backpack");
@@ -73,6 +79,7 @@ public class CartTest extends BaseTest {
     @Test(testName = "Проверка удаления одного продукта из нескольких", description = "Проверка удаления одного продукта из нескольких")
     @Description("Проверка удаления одного продукта из нескольких")
     public void checkRemoveOneProductFromSome() {
+        log.info("Removing one product from several");
         loginPage.open();
         loginPage.login("standard_user", "secret_sauce");
         productsPage.clickAddButton("Sauce Labs Backpack");
@@ -87,6 +94,7 @@ public class CartTest extends BaseTest {
     @Test(testName = "Проверка возврата на страницу продуктов", description = "Проверка возврата на страницу продуктов")
     @Description("Проверка возврата на страницу продуктов")
     public void checkReturnToProduct() {
+        log.info("Return to Products Page");
         loginPage.open();
         loginPage.login("standard_user", "secret_sauce");
         productsPage.clickAddButton("Sauce Labs Backpack");
