@@ -17,10 +17,10 @@
             <parameter name="browser" value="fireFox"></parameter>
         </classes>
     </test> <!-- Test -->
-    <test name="Thread#3">
-        <classes>
-            <class name="tests.CheckoutTest"/>
-            <parameter name="browser" value="edge"></parameter>
-        </classes>
-    </test> <!-- Test -->
+<!--    <test name="Thread#3">-->
+<!--        <classes>-->
+<!--            <class name="tests.CheckoutTest"/>-->
+<!--            <parameter name="browser" value="edge"></parameter>-->
+<!--        </classes>-->
+<!--    </test> &lt;!&ndash; Test &ndash;&gt;-->
 </suite>

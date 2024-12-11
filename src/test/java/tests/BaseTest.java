@@ -27,7 +27,6 @@ public class BaseTest {
     CheckoutPage checkoutPage;
     CheckoutOverviewPage checkoutOverviewPage;
 
-
     String user =System.getProperty("user", PropertyReader.getProperty("user"));
     String password =System.getProperty("password", PropertyReader.getProperty("password"));
 
