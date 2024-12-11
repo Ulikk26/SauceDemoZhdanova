@@ -17,7 +17,7 @@ public class LoginTest extends BaseTest {
     public void checkLogin() {
         log.info("Checking the login with valid login");
         loginPage.open();
-        loginPage.login("standard_user", "secret_sauce");
+        loginPage.login(user, password);
         assertEquals(
                 productsPage.getTitle(),
                 "Products",
