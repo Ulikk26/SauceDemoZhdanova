@@ -27,6 +27,7 @@ public class LoginTest extends BaseTest {
 
     //тест временно отключён enabled = false
     @Test(testName = "Проверка ошибки, при пустом логине", description = "Проверка ошибки, при пустом логине", enabled = false, priority = 3)
+    @Description("Проверка ошибки, при пустом логине")
     public void checkLoginEmptyUserName() {
         log.info("Checking the error message if the login field is empty");
         loginPage.open();

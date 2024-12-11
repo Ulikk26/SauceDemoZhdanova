@@ -12,7 +12,8 @@ import org.testng.ITestResult;
 import org.testng.annotations.*;
 import pages.*;
 
-import pages.utils.AllureUtils;
+import utils.AllureUtils;
+import utils.PropertyReader;
 
 import java.time.Duration;
 
@@ -27,8 +28,8 @@ public class BaseTest {
     CheckoutOverviewPage checkoutOverviewPage;
 
 
-    String user =System.getProperty("user");
-    String password =System.getProperty("password");
+    String user =System.getProperty("user", PropertyReader.getProperty("user"));
+    String password =System.getProperty("password", PropertyReader.getProperty("password"));
 
     @Parameters({"browser"})
     @BeforeMethod
@@ -49,12 +50,7 @@ public class BaseTest {
             EdgeOptions options =new EdgeOptions();
             options.addArguments("headless");
         }
-
-        System.out.println(System.getProperty("user"));
-        System.out.println(System.getProperty("password"));
-
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-
         loginPage=new LoginPage(driver);
         productsPage=new ProductsPage(driver);
         cartPage = new CartPage(driver);
