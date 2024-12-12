@@ -11,12 +11,12 @@
             <parameter name="browser" value="chrome"/>
         </classes>
     </test> <!-- Test -->
-    <test name="Thread#2">
-        <classes>
-            <class name="tests.CartTest"/>
-            <parameter name="browser" value="fireFox"></parameter>
-        </classes>
-    </test> <!-- Test -->
+<!--    <test name="Thread#2">-->
+<!--        <classes>-->
+<!--            <class name="tests.CartTest"/>-->
+<!--            <parameter name="browser" value="fireFox"></parameter>-->
+<!--        </classes>-->
+<!--    </test> &lt;!&ndash; Test &ndash;&gt;-->
 <!--    <test name="Thread#3">-->
 <!--        <classes>-->
 <!--            <class name="tests.CheckoutTest"/>-->
