@@ -26,7 +26,7 @@ public class LoginTest extends BaseTest {
 
 
     //тест временно отключён enabled = false
-    @Test(testName = "Проверка ошибки, при пустом логине", description = "Проверка ошибки, при пустом логине", enabled = false, priority = 3)
+    @Test(testName = "Проверка ошибки, при пустом логине", description = "Проверка ошибки, при пустом логине", priority = 3)
     @Description("Проверка ошибки, при пустом логине")
     public void checkLoginEmptyUserName() {
         log.info("Checking the error message if the login field is empty");
@@ -53,6 +53,7 @@ public class LoginTest extends BaseTest {
 
     //тест запуститься первым по очередности priority = 1
     @Test(testName = "Проверка ошибки, при неверном логине", description = "Проверка ошибки, при неверном логине", priority = 1)
+    @Description("Проверка ошибки, при неверном логине")
     public void checkLoginEmptyWrongUserName() {
         log.info("Checking the error message if login is invalid");
         driver.get("https://www.saucedemo.com/");
@@ -62,6 +63,7 @@ public class LoginTest extends BaseTest {
         String title = driver.findElement(By.xpath("//h3[@data-test='error']")).getText();
         assertEquals(title, "Epic sadface: Username and password do not match any user in this service", "ошибка не верная");
     }
+
 
     @DataProvider(name = "LoginData")
     public Object[][] loginDta() {
@@ -74,6 +76,7 @@ public class LoginTest extends BaseTest {
     }
 
     @Test(dataProvider = "LoginData")
+    @Description("Проверка ошибок")
     public void test(String user, String password, String expectedError) {
         log.info("Checking the error message");
         loginPage.open();
