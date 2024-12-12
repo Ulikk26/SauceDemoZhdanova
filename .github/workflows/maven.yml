@@ -6,7 +6,7 @@
 # separate terms of service, privacy policy, and support
 # documentation.
 
-name: Run test
+name: Test Runner
 
 on:
   push:
@@ -14,14 +14,14 @@ on:
   pull_request:
     branches: [ "master" ]
 
+env:
+  USERNAME: ${{secrets.USER}}
+  PASSWORD: ${{secrets.PASSWORD}}
+
 jobs:
   build:
 
     runs-on: ubuntu-latest
-
-    env:
-      USERNAME: ${{secrets.USER}}
-      PASSWORD: ${{secrets.PASSWORD}}
 
     steps:
       - uses: actions/checkout@v3
