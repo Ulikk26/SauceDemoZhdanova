@@ -40,9 +40,9 @@ public class BaseTest {
             options.addArguments("start-maximized");
             driver = new ChromeDriver(options);
         } else if(browser.equalsIgnoreCase("fireFox")){
-            driver = new FirefoxDriver();
             FirefoxOptions options = new FirefoxOptions();
             options.addArguments("headless");
+            driver = new FirefoxDriver(options);
 
         }else if(browser.equalsIgnoreCase("edge")) {
             driver = new EdgeDriver();
