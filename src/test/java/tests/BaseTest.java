@@ -36,8 +36,6 @@ public class BaseTest {
         log.info("Open browser {}", browser);
         if(browser.equalsIgnoreCase("chrome")){
             ChromeOptions options = new ChromeOptions();
-            options.addArguments("headless");
-            options.addArguments("start-maximized");
             options.addArguments("--no-sandbox");
             options.addArguments("--disable-dev-shm-usage");
             options.addArguments("--disable-gpu");
